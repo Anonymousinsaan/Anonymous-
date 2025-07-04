@@ -8,61 +8,35 @@ export default defineConfig({
       fastRefresh: true,
       jsxRuntime: 'automatic',
     }),
-    VitePWA({
-      registerType: 'autoUpdate',
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-cache',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
-              },
-              cacheKeyWillBeUsed: async ({ request }) => {
-                return `${request.url}?version=1`
-              }
-            }
-          },
-          {
-            urlPattern: /^https:\/\/api\.*/i,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'api-cache',
-              networkTimeoutSeconds: 10,
-              expiration: {
-                maxEntries: 100,
-                maxAgeSeconds: 60 * 60 * 24 // 1 day
-              }
-            }
-          }
-        ]
-      },
-      manifest: {
-        name: 'NebulaForge X',
-        short_name: 'NebulaForge',
-        description: 'AI-Powered 3D Game Engine',
-        theme_color: '#000000',
-        background_color: '#000000',
-        display: 'standalone',
-        orientation: 'portrait-primary',
-        icons: [
-          {
-            src: '/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
-    })
+    // Temporarily disabled PWA for quick deployment
+    // VitePWA({
+    //   registerType: 'autoUpdate',
+    //   disable: false,
+    //   workbox: {
+    //     globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+    //   },
+    //   includeAssets: ['favicon.ico'],
+    //   manifest: {
+    //     name: 'NebulaForge X',
+    //     short_name: 'NebulaForge',
+    //     description: 'AI-Powered 3D Game Engine',
+    //     theme_color: '#000000',
+    //     background_color: '#000000',
+    //     display: 'standalone',
+    //     icons: [
+    //       {
+    //         src: '/pwa-192x192.png',
+    //         sizes: '192x192',
+    //         type: 'image/png'
+    //       },
+    //       {
+    //         src: '/pwa-512x512.png',
+    //         sizes: '512x512',
+    //         type: 'image/png'
+    //       }
+    //     ]
+    //   }
+    // })
   ],
   build: {
     rollupOptions: {
