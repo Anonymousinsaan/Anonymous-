@@ -76,10 +76,11 @@ export default defineConfig({
           'utils-vendor': ['axios', 'socket.io-client', 'zustand', 'idb']
         },
         chunkFileNames: (chunkInfo) => {
-          const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/').pop().replace('.tsx', '').replace('.ts', '') : 'chunk'
-          return `js/${facadeModuleId}-[hash].js`
+          const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/').pop()?.replace('.tsx', '').replace('.ts', '') : 'chunk'
+          return `js/${facadeModuleId || 'chunk'}-[hash].js`
         },
         assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) return 'assets/[name]-[hash][extname]'
           const info = assetInfo.name.split('.')
           const ext = info[info.length - 1]
           if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(assetInfo.name)) {
