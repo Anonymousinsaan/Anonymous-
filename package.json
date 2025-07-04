@@ -10,11 +10,23 @@
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "vite build",
     "build:backend": "cd backend && python -m pip install -r requirements.txt",
+    "build:mobile": "npm run build:frontend && npx cap sync",
+    "build:android": "npm run build:mobile && npx cap build android",
+    "build:ios": "npm run build:mobile && npx cap build ios",
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,scss}\"",
-    "install:all": "npm install && cd backend && pip install -r requirements.txt"
+    "install:all": "npm install && cd backend && pip install -r requirements.txt",
+    "mobile:init": "npx cap init",
+    "mobile:add-android": "npx cap add android",
+    "mobile:add-ios": "npx cap add ios",
+    "mobile:serve": "npx cap serve",
+    "export:web": "npm run build:frontend && npm run package:web",
+    "export:android": "npm run build:android",
+    "export:desktop": "npm run build:frontend && npm run package:desktop",
+    "package:web": "cd dist && zip -r ../nebulaforge-web.zip .",
+    "package:desktop": "electron-builder"
   },
   "dependencies": {
     "@types/three": "^0.158.3",
@@ -53,7 +65,13 @@
     "vite-plugin-pwa": "^0.17.4",
     "vitest": "^1.0.4",
     "prettier": "^3.1.1",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/cli": "^5.5.1",
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/ios": "^5.5.1",
+    "electron": "^27.1.3",
+    "electron-builder": "^24.6.4"
   },
   "keywords": [
     "game-engine",
@@ -63,7 +81,10 @@
     "python",
     "rust",
     "webgl",
-    "pwa"
+    "pwa",
+    "mobile",
+    "android",
+    "ios"
   ],
   "author": "NebulaForge Team",
   "license": "MIT"
