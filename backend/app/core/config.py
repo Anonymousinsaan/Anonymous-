@@ -19,6 +19,16 @@ class Settings(BaseSettings):
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
     
+    # OAuth Settings
+    google_client_id: str = "your-google-client-id.apps.googleusercontent.com"
+    google_client_secret: str = "your-google-client-secret"
+    github_client_id: str = "your-github-client-id"
+    github_client_secret: str = "your-github-client-secret"
+    oauth_redirect_uri: str = "http://localhost:5173/auth/callback"
+    
+    # Frontend URL
+    frontend_url: str = "http://localhost:5173"
+    
     # Database
     database_url: str = "sqlite:///./nebulaforge.db"
     

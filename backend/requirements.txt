@@ -34,3 +34,5 @@ pymeshlab==2023.12
 networkx==3.2.1
 python-dotenv==1.0.0
 jinja2==3.1.2
+authlib==1.2.1
+itsdangerous==2.1.2
