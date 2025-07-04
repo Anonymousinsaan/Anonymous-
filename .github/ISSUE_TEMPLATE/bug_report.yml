@@ -1,0 +1,192 @@
+name: 🐛 Bug Report
+description: Report a bug or issue with NebulaForge X
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug Report for NebulaForge X
+        Thanks for reporting a bug! This helps us improve the game engine.
+        
+        **Before submitting:**
+        - Search existing issues to avoid duplicates
+        - Check if this is a known limitation in our docs
+        - Try the latest version if possible
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: 🎯 Component Affected
+      description: Which part of NebulaForge X has the issue?
+      options:
+        - "🎨 Frontend/UI"
+        - "🔧 Backend/API"
+        - "🤖 AI Modules (NebulaVoid, SentinelFlux, etc.)"
+        - "🎮 Game Engine Core"
+        - "📱 Mobile/APK Export"
+        - "🌐 NebulaLink API"
+        - "⚡ Performance/Optimization"
+        - "🔒 Authentication/Security"
+        - "📊 Monitoring/Analytics"
+        - "🚀 Build/Deployment"
+        - "📚 Documentation"
+        - "❓ Other/Unknown"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 🚨 Severity Level
+      description: How severe is this bug?
+      options:
+        - "🔥 Critical - App crashes/unusable"
+        - "⚠️ High - Major feature broken"
+        - "📋 Medium - Feature partially works"
+        - "🔍 Low - Minor UI/UX issue"
+        - "💡 Enhancement - Improvement suggestion"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Bug Description
+      description: Clear and concise description of the bug
+      placeholder: |
+        Example: "When trying to create a new game project using the AI assistant, 
+        the system throws an error and returns to the dashboard without creating anything."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 🔄 Steps to Reproduce
+      description: Detailed steps to reproduce the issue
+      placeholder: |
+        1. Go to "Engine Builder"
+        2. Click "Create New Project"
+        3. Select "FPS Game" template
+        4. Click "Generate with AI"
+        5. Error appears: [Error message]
+      value: |
+        1. 
+        2. 
+        3. 
+        4. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Expected Behavior
+      description: What should happen?
+      placeholder: "The AI should generate a new FPS game project and show the project editor."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: ❌ Actual Behavior
+      description: What actually happens?
+      placeholder: "Error message appears and user is redirected to dashboard."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 🖥️ Platform
+      description: Where are you running NebulaForge X?
+      options:
+        - "🌐 Web Browser (Chrome)"
+        - "🌐 Web Browser (Firefox)"
+        - "🌐 Web Browser (Safari)"
+        - "🌐 Web Browser (Edge)"
+        - "📱 Android APK"
+        - "🖥️ Desktop App"
+        - "☁️ Cloud/Server"
+        - "❓ Other"
+    validations:
+      required: true
+
+  - type: input
+    id: browser_version
+    attributes:
+      label: 🌐 Browser/System Version
+      description: Browser version, OS, device details
+      placeholder: "Chrome 120.0.6099.71, Windows 11, Intel i7"
+
+  - type: textarea
+    id: console_logs
+    attributes:
+      label: 📋 Console Logs/Error Messages
+      description: Any error messages from browser console or application logs
+      placeholder: |
+        Open browser DevTools (F12) and copy any red error messages:
+        
+        ```
+        Error: Failed to fetch game template
+        at generateGame.js:45
+        TypeError: Cannot read property 'id' of undefined
+        ```
+      render: shell
+
+  - type: textarea
+    id: network_info
+    attributes:
+      label: 🌐 Network/API Information
+      description: Network tab information if it's an API issue
+      placeholder: |
+        From DevTools Network tab:
+        - Failed request: POST /api/v1/create-game
+        - Status: 500 Internal Server Error
+        - Response: {"error": "AI service unavailable"}
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 📎 Additional Context
+      description: Screenshots, videos, or any other relevant information
+      placeholder: |
+        - Screenshots of the error
+        - Video of the issue
+        - Related issues or workarounds tried
+        - Any other context that might help
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues for duplicates
+          required: true
+        - label: I have tried refreshing the page/clearing browser cache
+          required: true
+        - label: I have checked the browser console for error messages
+          required: true
+        - label: I am using a supported browser/platform
+          required: true
+        - label: I have provided clear steps to reproduce the issue
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚀 Thank You!
+        Your bug report helps us improve NebulaForge X for everyone. 
+        
+        **What happens next:**
+        1. 🏷️ We'll label and prioritize your issue
+        2. 🤖 Our AI monitoring systems will analyze the problem
+        3. 👨‍💻 A developer will investigate and respond
+        4. 🔧 We'll work on a fix and keep you updated
+        
+        **⚡ For urgent issues affecting multiple users, we aim to respond within 24 hours.**
