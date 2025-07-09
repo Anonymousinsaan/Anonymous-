@@ -1,0 +1,44 @@
+{
+  "name": "NebulaForge X",
+  "short_name": "NebulaForge X",
+  "description": "Universal AI-Powered Development Engine",
+  "theme_color": "#00d4ff",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "features": [
+    "cross-platform",
+    "ai-powered",
+    "game-development",
+    "app-development",
+    "web-development",
+    "offline-support"
+  ],
+  "categories": ["developer", "productivity", "games"],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "type": "image/png",
+      "sizes": "1280x720"
+    }
+  ]
+}
